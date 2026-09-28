@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-primary: #082f5a;
+  --color-primary-strong: #061d3d;
+  --color-secondary: #203b51;
+  --color-accent: #00a896;
+  --color-surface: #f3f7fb;
+  --color-border: #dfeaf3;
+  --color-text: #0f172a;
+  --color-muted: #475569;
+  --shadow-soft: 0 16px 40px rgba(8, 47, 90, 0.08);
+  --shadow-card: 0 14px 36px rgba(15, 23, 42, 0.08);
+  --radius-soft: 22px;
+}
+
+:root,
+:root[class='light'] {
+  color-scheme: light;
+  --background: #f2f6fb;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --muted: #edf3f8;
+  --muted-strong: #dde8f3;
+}
+
+:root[class='dark'] {
+  color-scheme: dark;
+  --background: #020817;
+  --foreground: #e2e8f0;
+  --card: #0f172a;
+  --muted: #111827;
+  --muted-strong: #1e293b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(2, 132, 199, 0.12), transparent 30%),
+    linear-gradient(180deg, #f7fafd 0%, #eef4fb 100%);
+  color: var(--foreground);
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@theme {
+  --font-sans: 'Manrope', sans-serif;
+  --color-primary: #082f5a;
+  --color-primary-2: #203b51;
+  --color-accent: #00a896;
+  --color-surface: #f3f7fb;
+  --color-border: #dfeaf3;
+  --color-muted: #475569;
+  --color-text: #0f172a;
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-shell {
+    @apply py-16 md:py-20;
+  }
+
+  .site-card {
+    @apply rounded-[1.5rem] border border-slate-200 bg-white/90 shadow-[0_18px_40px_rgba(15,23,42,0.08)] backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/90;
+  }
+
+  .site-card-soft {
+    @apply rounded-[1.4rem] border border-slate-200/80 bg-slate-50/90 shadow-[0_12px_30px_rgba(15,23,42,0.05)] dark:border-slate-800 dark:bg-slate-900/80;
+  }
+
+  .section-kicker {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.24em] text-primary;
+  }
+
+  .premium-button {
+    @apply inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-bold tracking-[-0.01em] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+  }
+
+  .premium-button-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-bold tracking-[-0.01em] text-white shadow-[0_14px_28px_rgba(8,47,90,0.2)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+  }
+
+  .premium-button-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-bold tracking-[-0.01em] text-slate-900 transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800;
+  }
+}
