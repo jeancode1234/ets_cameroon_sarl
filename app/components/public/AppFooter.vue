@@ -1,7 +1,7 @@
 <template>
   <footer class="border-t border-slate-200 bg-slate-950 text-slate-200 dark:border-slate-800">
     <div class="container-shell py-10 md:py-12">
-      <div class="site-card overflow-hidden bg-gradient-to-r from-slate-900 via-slate-900 to-primary p-6 text-white md:p-8">
+      <!-- <div class="site-card overflow-hidden bg-gradient-to-r from-slate-900 via-slate-900 to-primary p-6 text-white md:p-8">
         <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p class="text-[10px] uppercase tracking-[0.26em] text-slate-300">Cabinet de référence</p>
@@ -12,7 +12,7 @@
             <BaseButton variant="primary" class="!border !border-white/20 !bg-transparent !text-white hover:!bg-white/5" @click="navigateTo('/contact')">Nous contacter</BaseButton>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="mt-10 grid gap-10 md:grid-cols-[1.3fr_0.8fr_0.9fr]">
         <div>

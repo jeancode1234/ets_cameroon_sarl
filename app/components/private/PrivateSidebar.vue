@@ -54,6 +54,9 @@ const menu = computed(() => {
         { label: 'Utilisateurs', to: '/app/admin/users' },
         { label: 'Prospecteurs', to: '/app/admin/prospecteurs' },
         { label: 'Clients', to: '/app/admin/clients' },
+        { label: 'Devis', to: '/app/admin/quotes' },
+        { label: 'Alertes', to: '/app/admin/alerts' },
+        { label: 'Fonctionnalités', to: '/app/admin/features' },
         { label: 'Rapports', to: '/app/admin/reports' },
         { label: 'Paramètres', to: '/app/admin/settings' },
         { label: 'Profil', to: '/app/profile' }
@@ -61,10 +64,12 @@ const menu = computed(() => {
     case 'MANAGER':
       return [
         { label: 'Dashboard', to: '/app/manager/dashboard' },
+        { label: 'Pipeline', to: '/app/manager/pipeline' },
         { label: 'Prospecteurs', to: '/app/manager/prospecteurs' },
-        { label: 'Rapports', to: '/app/manager/reports' },
+        { label: 'Chantiers', to: '/app/manager/chantiers' },
         { label: 'Ventes', to: '/app/manager/ventes' },
         { label: 'Validations', to: '/app/manager/validations' },
+        { label: 'Rapports', to: '/app/manager/reports' },
         { label: 'Notifications', to: '/app/manager/notifications' },
         { label: 'Profil', to: '/app/profile' }
       ]
@@ -75,6 +80,7 @@ const menu = computed(() => {
         { label: 'Projets', to: '/app/client/projets' },
         { label: 'Devis', to: '/app/client/devis' },
         { label: 'Factures', to: '/app/client/factures' },
+        { label: 'Paiements', to: '/app/client/payments' },
         { label: 'Profil', to: '/app/profile' }
       ]
     case 'PARTENAIRE':
@@ -91,12 +97,6 @@ const menu = computed(() => {
         { label: 'Dashboard', to: '/app/prospecteur/dashboard' },
         { label: 'Prospects', to: '/app/prospecteur/prospects' },
         { label: 'Chantiers', to: '/app/prospecteur/chantiers' },
-        { label: 'Rapports', to: '/app/prospecteur/rapports' },
-        { label: 'Ventes', to: '/app/prospecteur/ventes' },
-        { label: 'Commissions', to: '/app/prospecteur/commissions' },
-        { label: 'Progression', to: '/app/prospecteur/progression' },
-        { label: 'Profil', to: '/app/profile' }
-      ]
-  }
-})
+        { label: 'Tâches', to: '/app/prospecteur/taches' },]
+        }})
 </script>
