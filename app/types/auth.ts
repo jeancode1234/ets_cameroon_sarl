@@ -1,4 +1,4 @@
-export type RoleName = 'ADMIN' | 'MANAGER' | 'PROSPECTEUR' | 'CLIENT' | 'USER'
+export type RoleName = 'ADMIN' | 'MANAGER' | 'PROSPECTEUR' | 'CLIENT' | 'PARTENAIRE' | 'USER'
 
 export interface LoginRequest {
   email: string

@@ -68,7 +68,7 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({ layout: 'private', middleware: ['auth'], role: 'MANAGER' })
+definePageMeta({ layout: 'private', middleware: ['auth', 'role'], role: 'MANAGER' })
 
 const cards = [
   { label: 'Prospecteurs', value: '18', delta: '+6.2%' },

@@ -1,12 +1,24 @@
 export default defineNuxtRouteMiddleware((to) => {
   const auth = useAuth()
-  const requiredRole = (to.meta.role as string | undefined) ?? 'USER'
 
   if (!auth.isAuthenticated.value) {
-    return navigateTo('/auth/login')
+    return navigateTo(`/auth/login?redirect=${encodeURIComponent(to.fullPath)}`)
   }
 
-  if (!auth.hasRole(requiredRole)) {
+  const requiredRoles = to.meta.role
+  const allowedRoles = Array.isArray(requiredRoles)
+    ? requiredRoles
+    : requiredRoles
+      ? [requiredRoles]
+      : []
+
+  if (allowedRoles.length === 0) {
+    return
+  }
+
+  const hasAccess = allowedRoles.some((role) => auth.hasRole(String(role)))
+
+  if (!hasAccess) {
     return navigateTo('/403')
   }
 })

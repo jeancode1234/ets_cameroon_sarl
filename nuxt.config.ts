@@ -4,7 +4,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: ['~/assets/css/tailwind.css'],
-  components: [{ path: '~/components', pathPrefix: false, global: true }],
+  components: [
+    { path: '~/components/admin', pathPrefix: false, global: true },
+    { path: '~/components/manager', pathPrefix: false, global: true },
+    { path: '~/components/private', pathPrefix: false, global: true },
+    { path: '~/components/public', pathPrefix: false, global: true },
+    { path: '~/components/ui', pathPrefix: false, global: true }
+  ],
   vite: {
     plugins: [tailwindcss()]
   },

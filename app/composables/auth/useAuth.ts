@@ -1,16 +1,23 @@
+import { getHomeRouteForRole as resolveHomeRoute, getPermissionsForRole, type RoleName } from '~/utils/auth-role'
+
 export function useAuth() {
   const user = useState<AuthUser | null>('auth.user', () => null)
   const permissions = useState<string[]>('auth.permissions', () => [])
-  const roles = useState<string[]>('auth.roles', () => [])
+  const roles = useState<RoleName[]>('auth.roles', () => [])
   const accessToken = useCookie<string | null>('access_token', { default: () => null, sameSite: 'lax' })
   const refreshToken = useCookie<string | null>('refresh_token', { default: () => null, sameSite: 'lax' })
   const isAuthenticated = computed(() => !!user.value && !!accessToken.value)
 
   function setSessionValue(nextUser: AuthUser | null, nextPermissions: string[] = [], nextRoles: string[] = []) {
-    user.value = nextUser
-    permissions.value = nextPermissions
-    roles.value = nextRoles
-    if (nextUser) {
+    const safeUser = nextUser ? { ...nextUser, role: nextUser.role ?? 'USER' } : null
+    const safePermissions = nextPermissions.length > 0 ? nextPermissions : getPermissionsForRole(safeUser?.role)
+    const safeRoles = nextRoles.length > 0 ? nextRoles.filter(Boolean) as RoleName[] : safeUser ? [safeUser.role] : []
+
+    user.value = safeUser
+    permissions.value = safePermissions
+    roles.value = safeRoles
+
+    if (safeUser) {
       if (!accessToken.value) {
         accessToken.value = 'demo-access-token'
       }
@@ -21,16 +28,7 @@ export function useAuth() {
   }
 
   function getHomeRouteForRole(role?: string) {
-    switch (role) {
-      case 'ADMIN':
-        return '/app/admin/dashboard'
-      case 'MANAGER':
-        return '/app/manager/dashboard'
-      case 'PROSPECTEUR':
-        return '/app/prospecteur/dashboard'
-      default:
-        return '/app'
-    }
+    return resolveHomeRoute(role)
   }
 
   async function login(payload: LoginRequest) {
@@ -74,11 +72,11 @@ export function useAuth() {
   }
 
   function hasRole(role: string) {
-    return roles.value.includes(role)
+    return roles.value.includes(role as RoleName) || user.value?.role === role
   }
 
   function hasPermission(permission: string) {
-    return permissions.value.includes(permission)
+    return permissions.value.includes(permission) || getPermissionsForRole(user.value?.role).includes(permission)
   }
 
   function can(permission: string) {
