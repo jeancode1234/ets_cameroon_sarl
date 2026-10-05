@@ -81,9 +81,8 @@ async function submitQuote() {
       description: '',
       attachments: []
     })
-  } catch (error) {
+  } catch {
     state.value = 'error'
-    console.error(error)
   }
 }
 </script>

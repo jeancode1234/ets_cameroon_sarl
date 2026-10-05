@@ -48,6 +48,8 @@
 </template>
 
 <script setup lang="ts">
+import { ref,reactive } from 'vue';
+import { useAuth } from '~/composables/auth/useAuth';
 const form = reactive({
   firstName: '',
   lastName: '',

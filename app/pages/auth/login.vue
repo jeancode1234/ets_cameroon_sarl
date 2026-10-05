@@ -56,6 +56,8 @@
 </template>
 
 <script setup lang="ts">
+import { useAuth } from '~/composables/auth/useAuth';
+import { ref,reactive } from 'vue';
 const form = reactive({ email: '', password: '' })
 const loading = ref(false)
 
