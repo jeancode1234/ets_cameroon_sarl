@@ -1,1 +1,0 @@
-import{c as e,u as t}from"./BvmK-uqM.js";import{t as n}from"./CLadW5Ov.js";var r=e(()=>{if(n().isAuthenticated.value)return t(`/app`)});export{r as default};

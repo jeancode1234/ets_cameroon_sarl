@@ -1,1 +1,0 @@
-import{c as e,u as t}from"./BvmK-uqM.js";import{t as n}from"./CLadW5Ov.js";var r=e(e=>{let r=n();if(!r.isAuthenticated.value)return t(`/auth/login?redirect=${encodeURIComponent(e.fullPath)}`);let i=e.meta.role,a=Array.isArray(i)?i:i?[i]:[];if(a.length!==0&&!a.some(e=>r.hasRole(String(e))))return t(`/403`)});export{r as default};

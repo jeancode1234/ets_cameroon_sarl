@@ -8,8 +8,6 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/tailwind.css'],
   components: [
-    { path: '~/components/admin', pathPrefix: false, global: true },
-    { path: '~/components/manager', pathPrefix: false, global: true },
     { path: '~/components/private', pathPrefix: false, global: true },
     { path: '~/components/public', pathPrefix: false, global: true },
     { path: '~/components/ui', pathPrefix: false, global: true }

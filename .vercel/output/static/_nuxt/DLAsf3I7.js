@@ -1,1 +1,0 @@
-import{c as e,u as t}from"./BvmK-uqM.js";import{t as n}from"./CLadW5Ov.js";var r=e(e=>{if(!n().isAuthenticated.value)return t(`/auth/login?redirect=${encodeURIComponent(e.fullPath)}`)});export{r as default};
