@@ -1,39 +1,55 @@
 <template>
-  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/75 shadow-[0_8px_30px_rgba(15,23,42,0.04)] backdrop-blur-xl transition-colors duration-300 dark:border-slate-800 dark:bg-slate-950/75">
-    <div class="container-shell">
-      <nav class="mt-3 flex items-center justify-between gap-4 rounded-full border border-slate-200/80 bg-white/80 px-3 py-2 shadow-[0_12px_35px_rgba(15,23,42,0.06)] dark:border-slate-700 dark:bg-slate-900/80">
-        <NuxtLink to="/" class="flex items-center gap-3 rounded-full px-2 py-1.5 transition hover:bg-slate-100 dark:hover:bg-slate-800">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-sky-700 text-sm font-bold text-white shadow-[0_12px_22px_rgba(8,47,90,0.22)]">E</div>
-          <div class="leading-tight">
-            <p class="text-[10px] uppercase tracking-[0.28em] text-primary/75">ETS</p>
-            <p class="text-sm font-semibold text-slate-900 dark:text-white">Cameroon Services</p>
-          </div>
-        </NuxtLink>
+  <header class="sticky top-0 z-50  bg-slate-950/80 shadow-[0_20px_60px_rgba(2,6,23,0.28)] backdrop-blur-2xl">
+    <div class="container-shell py-3">
+      <nav class="relative overflow-hidden  px-3 py-2 ">
+        <div class="absolute" />
 
-        <div class="hidden items-center gap-1 rounded-full border border-slate-200 bg-slate-50/80 p-1 md:flex dark:border-slate-700 dark:bg-slate-800/80">
-          <NuxtLink v-for="item in links" :key="item.to" :to="item.to" class="rounded-full px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-white hover:text-primary dark:text-slate-200 dark:hover:bg-slate-700 dark:hover:text-white" active-class="bg-white text-primary shadow-sm dark:bg-slate-700 dark:text-white">
-            {{ item.label }}
+        <div class="relative flex items-center justify-between gap-4">
+          <NuxtLink to="/" class="flex items-center gap-3 rounded-full px-2 py-1.5 transition">
+            <div class="flex h-11 w-11 items-center justify-center  text-sm font-black text-white shadow-2xl shadow-black">E</div>
+            <div class="leading-tight">
+              <p class="text-[9px] font-bold uppercase tracking-[0.32em] text-sky-200/90">ETS</p>
+              <p class="text-sm font-semibold tracking-[-0.03em] text-white">Cameroon Services</p>
+            </div>
           </NuxtLink>
-        </div>
 
-        <div class="hidden items-center gap-3 md:flex">
-          <div class="hidden rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-700 lg:block">Support terrain</div>
-          <BaseButton variant="primary" @click="navigateTo('/demande-devis')">Demander un devis</BaseButton>
-        </div>
+          <div class="hidden flex-1 items-center justify-center md:flex">
+            <div class="flex items-center gap-1 p-1.5 ">
+              <NuxtLink
+                v-for="item in links"
+                :key="item.to"
+                :to="item.to"
+                class="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/6 hover:text-white"
+                active-class="bg-white/8 text-white shadow-[0_10px_22px_rgba(59,130,246,0.18)]"
+              >
+                {{ item.label }}
+              </NuxtLink>
+            </div>
+          </div>
 
-        <button class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-lg text-slate-700 md:hidden dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200" @click="mobileOpen = !mobileOpen">
-          <span class="sr-only">Ouvrir le menu</span>
-          ☰
-        </button>
+          <div class="hidden items-center gap-3 md:flex">
+            <BaseButton variant="secondary" class="px-4 py-2.5" @click="navigateTo('/auth/login')">Connexion</BaseButton>
+            <BaseButton variant="primary" class="px-4 py-2.5" @click="navigateTo('/auth/register')">Créer un compte</BaseButton>
+          </div>
+
+          <button class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg text-white md:hidden" @click="mobileOpen = !mobileOpen">
+            <span class="sr-only">Ouvrir le menu</span>
+            ☰
+          </button>
+        </div>
       </nav>
     </div>
 
-    <div v-if="mobileOpen" class="border-t border-slate-200 bg-white/95 md:hidden dark:border-slate-800 dark:bg-slate-950/95">
+    <div v-if="mobileOpen" class="border-t border-white/10 bg-slate-950/95 md:hidden">
       <div class="container-shell flex flex-col gap-4 py-4">
-        <NuxtLink v-for="item in links" :key="item.to" :to="item.to" class="rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 hover:text-primary dark:text-slate-200 dark:hover:bg-slate-900 dark:hover:text-white" @click="mobileOpen = false">
+        <NuxtLink v-for="item in links" :key="item.to" :to="item.to" class="rounded-xl px-3 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/5 hover:text-white" @click="mobileOpen = false">
           {{ item.label }}
         </NuxtLink>
-        <BaseButton variant="primary" class="w-full" @click="navigateTo('/demande-devis')">Demander un devis</BaseButton>
+        <div class="grid gap-2 sm:grid-cols-3">
+          <BaseButton variant="secondary" class="w-full !px-3 !py-2.5" @click="navigateTo('/auth/login')">Connexion</BaseButton>
+          <BaseButton variant="primary" class="w-full !px-3 !py-2.5" @click="navigateTo('/auth/register')">Créer un compte</BaseButton>
+          <BaseButton variant="primary" class="w-full !px-3 !py-2.5" @click="navigateTo('/demande-devis')">Demander un devis</BaseButton>
+        </div>
       </div>
     </div>
   </header>
