@@ -1,11 +1,11 @@
 <template>
-  <section class="section-shell bg-[radial-gradient(circle_at_top,_rgba(8,47,90,0.08),_transparent_30%)]">
+  <section class="section-shell bg-[radial-gradient(circle_at_top,rgba(8,47,90,0.08),transparent_30%)]">
     <div class="container-shell max-w-6xl">
       <div class="premium-shell grid overflow-hidden lg:grid-cols-[0.95fr_1.05fr] dark:border-slate-800">
-        <div class="relative hidden bg-gradient-to-br from-slate-950 via-primary to-sky-700 p-8 text-white lg:flex lg:flex-col lg:justify-between">
+        <div class="relative hidden bg-linear-to-br from-slate-950 via-primary to-sky-700 p-8 text-white lg:flex lg:flex-col lg:justify-between">
           <div>
             <p class="text-[10px] font-extrabold uppercase tracking-[0.28em] text-sky-200">Rejoignez-nous</p>
-            <h1 class="mt-6 max-w-sm text-4xl font-extrabold leading-tight tracking-[-0.05em]">Créez votre compte partenaire</h1>
+            <h1 class="mt-6 max-w-sm text-4xl font-extrabold leading-tight tracking-tight">Créez votre compte partenaire</h1>
             <p class="mt-4 max-w-sm text-sm leading-7 text-slate-200">Développez vos opportunités avec un réseau de professionnels, fournisseurs et gestionnaires de projet.</p>
           </div>
 
@@ -48,8 +48,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref,reactive } from 'vue';
-import { useAuth } from '~/composables/auth/useAuth';
+import { reactive } from 'vue'
+import { useAuth } from '../../composables/auth/useAuth'
+
 const form = reactive({
   firstName: '',
   lastName: '',

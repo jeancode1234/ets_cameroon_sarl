@@ -1,11 +1,11 @@
 <template>
   <div>
-    <section class="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(8,47,90,0.08),_transparent_35%),linear-gradient(135deg,#081c36_0%,#091f42_38%,#0e2d4d_100%)] text-white">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_right,_rgba(14,165,233,0.18),_transparent_30%)]" />
+    <section class="relative overflow-hidden bg-[radial-gradient(circle_at_top,rgba(8,47,90,0.08),transparent_35%),linear-gradient(135deg,#081c36_0%,#091f42_38%,#0e2d4d_100%)] text-white">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(14,165,233,0.18),transparent_30%)]" />
       <div class="container-shell relative grid gap-10 py-16 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
         <div class="animate-rise">
           <p class="mb-4 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.26em] text-sky-100">Partenaire de terrain</p>
-          <h1 class="max-w-xl text-4xl font-extrabold leading-[1.02] tracking-[-0.05em] text-white md:text-6xl">
+          <h1 class="max-w-xl text-4xl font-extrabold leading-[1.02] tracking-tight text-white md:text-6xl">
             Construisons vos projets.<br>
             <span class="bg-gradient-to-r from-sky-200 via-cyan-300 to-white bg-clip-text text-transparent">Nous fournissons les solutions.</span>
           </h1>
@@ -15,7 +15,7 @@
 
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <BaseButton variant="primary" @click="navigateTo('/demande-devis')">Demander un devis</BaseButton>
-            <BaseButton variant="secondary" class="!border-white/15 !bg-white/5 !text-white hover:!bg-white/10" @click="navigateTo('/solutions')">Découvrir nos solutions</BaseButton>
+            <BaseButton variant="secondary" class="border-white/15 bg-white/5 text-white hover:bg-white/10" @click="navigateTo('/solutions')">Découvrir nos solutions</BaseButton>
           </div>
 
           <div class="mt-8 grid gap-3 sm:grid-cols-3">

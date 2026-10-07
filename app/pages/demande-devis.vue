@@ -54,7 +54,9 @@
 </template>
 
 <script setup lang="ts">
-import type { QuoteRequest } from '~/types/quote'
+import { reactive, ref } from 'vue'
+import { useApi } from '../composables/useApi'
+import type { QuoteRequest } from '../types/quote'
 
 const steps = [
   { title: 'Échange initial', description: 'Nous comprenons votre besoin et le contexte de votre projet.' },
