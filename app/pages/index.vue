@@ -3,11 +3,11 @@
     <section class="relative overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(8,47,90,0.08),_transparent_35%),linear-gradient(135deg,#081c36_0%,#091f42_38%,#0e2d4d_100%)] text-white">
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_right,_rgba(14,165,233,0.18),_transparent_30%)]" />
       <div class="container-shell relative grid gap-10 py-16 md:py-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-        <div>
+        <div class="animate-rise">
           <p class="mb-4 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.26em] text-sky-100">Partenaire de terrain</p>
           <h1 class="max-w-xl text-4xl font-extrabold leading-[1.02] tracking-[-0.05em] text-white md:text-6xl">
             Construisons vos projets.<br>
-            <span class="text-sky-300">Nous fournissons les solutions.</span>
+            <span class="bg-gradient-to-r from-sky-200 via-cyan-300 to-white bg-clip-text text-transparent">Nous fournissons les solutions.</span>
           </h1>
           <p class="mt-6 max-w-xl text-base leading-8 text-slate-200 md:text-lg">
             ETS Cameroon Services accompagne les besoins de construction, rénovation, décoration et équipement professionnel avec des solutions fiables, adaptées au terrain et pensées pour des projets durables.
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <div class="relative">
+        <div class="relative animate-float">
           <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-[0_30px_80px_rgba(2,6,23,0.45)] backdrop-blur-sm">
             <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80" alt="Chantier professionnel" class="h-[520px] w-full rounded-[1.6rem] object-cover" />
           </div>
@@ -86,7 +86,24 @@
       </div>
     </section>
 
-    <section class="section-shell bg-slate-100 dark:bg-slate-900/80">
+    <section class="section-shell bg-slate-100/80 dark:bg-slate-900/80">
+      <div class="container-shell">
+        <div class="mb-10 text-center">
+          <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">Pourquoi nous choisir</p>
+          <h2 class="mt-3 text-3xl font-extrabold tracking-[-0.04em] text-slate-900 dark:text-white md:text-4xl">Une expertise orientée résultat, sans compromis.</h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <article v-for="benefit in benefits" :key="benefit.title" class="glass-panel animate-rise rounded-[1.7rem] p-5">
+            <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-sky-100 text-xl text-primary dark:from-sky-500/10 dark:to-sky-500/5">{{ benefit.icon }}</div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">{{ benefit.title }}</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{{ benefit.text }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell">
       <div class="container-shell">
         <div class="mb-10 flex items-end justify-between gap-6">
           <div>
@@ -218,6 +235,13 @@ useHead({
     { name: 'description', content: 'ETS Cameroon Services accompagne les projets de construction, rénovation, hôtellerie et restauration au Cameroun.' }
   ]
 })
+
+const benefits = [
+  { icon: '📍', title: 'Disponibilité terrain', text: 'Une proximité concrète avec les chantiers, les acteurs locaux et les enjeux opérationnels du quotidien.' },
+  { icon: '🧩', title: 'Approvisionnement complet', text: 'Des solutions intégrées, de la matière première aux équipements de finition et d’exploitation.' },
+  { icon: '🛡️', title: 'Qualité garantie', text: 'Des produits sélectionnés et des recommandations orientées performance, sécurité et durabilité.' },
+  { icon: '🤝', title: 'Accompagnement humain', text: 'Un service réactif, une écoute précise et un suivi qui accompagne chaque étape du projet.' }
+]
 
 const services = [
   { icon: '🏗️', tag: 'Bâtiment', title: 'Gros œuvre', slug: 'gros-oeuvre', description: 'Ciment, fer, agrégats, toiture et matériaux structuraux pour des chantiers solides.', image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80' },

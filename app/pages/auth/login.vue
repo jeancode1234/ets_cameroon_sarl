@@ -1,7 +1,7 @@
 <template>
   <section class="section-shell bg-[radial-gradient(circle_at_top,_rgba(8,47,90,0.08),_transparent_30%)]">
     <div class="container-shell max-w-5xl">
-      <div class="grid overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_30px_80px_rgba(15,23,42,0.08)] lg:grid-cols-[1.1fr_0.9fr] dark:border-slate-800 dark:bg-slate-900">
+      <div class="premium-shell grid overflow-hidden lg:grid-cols-[1.1fr_0.9fr] dark:border-slate-800">
         <div class="relative hidden bg-gradient-to-br from-primary via-[#0d2d53] to-sky-700 p-8 text-white lg:flex lg:flex-col lg:justify-between">
           <div>
             <p class="text-[10px] font-extrabold uppercase tracking-[0.28em] text-sky-200">ETS Cameroon Services</p>
